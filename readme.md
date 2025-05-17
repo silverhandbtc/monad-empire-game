@@ -74,6 +74,10 @@ DATABASE_URL=<your-database-url>
 ├── src
 │   ├── app
 │   ├── components
+    ├── config
+    ├── hooks
+    ├── lib
+    ├── providers
 │   ├── services
 │   └── utils
 ├── .env
@@ -104,7 +108,6 @@ This project is licensed under the MIT License.
 
 * [Website](http://www.monadempire.xyz)
 * [GitHub Issues](https://github.com/silverhandbtc/monad-empire-game/issues)
-* [Documentation](https://monad-empire-game.vercel.app/docs)
 
 ---
 

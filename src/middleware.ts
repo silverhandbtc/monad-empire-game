@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import env from './config/env';
 
 export default function middleware(request: NextRequest) {
-  const allowedOrigins = ['https://monadempire.xyz', 'http://localhost:3000'];
+  const allowedOrigins = [env.NEXT_PUBLIC_SITE_URL];
   const origin = request.headers.get('origin');
 
   if (origin && !allowedOrigins.includes(origin)) {
