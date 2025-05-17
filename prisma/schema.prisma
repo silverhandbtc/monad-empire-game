@@ -1,0 +1,61 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  walletAddress String    @unique
+  gameData      GameData?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model GameData {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String     @unique @db.ObjectId
+  user        User       @relation(fields: [userId], references: [id])
+  money       Float      @default(50)
+  totalEarned Float      @default(0)
+  playerLevel Json       
+  businesses  Business[]
+  managers    Manager[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Business {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  gameDataId String   @db.ObjectId
+  gameData   GameData @relation(fields: [gameDataId], references: [id])
+  businessId Int      
+  name       String
+  baseCost   Float
+  baseRevenue Float
+  baseTime   Float
+  owned      Int      @default(0)
+  level      Int      @default(1)
+  manager    Boolean  @default(false)
+  progress   Float    @default(0)
+  isRunning  Boolean  @default(false)
+  icon       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Manager {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  gameDataId String   @db.ObjectId
+  gameData   GameData @relation(fields: [gameDataId], references: [id])
+  managerId  Int      
+  businessId Int      
+  name       String
+  cost       Float
+  purchased  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
