@@ -17,7 +17,7 @@ const walletOptions = [
     name: 'MetaMask',
     icon: 'M',
     type: 'evm',
-    description: 'Conecte-se usando a carteira MetaMask',
+    description: 'Connect using the MetaMask wallet',
     checkInstalled: () =>
       typeof window !== 'undefined' && !!window?.ethereum?.isMetaMask,
   },
@@ -55,13 +55,13 @@ export function WalletDialog({ isOpen, onClose }: WalletModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="max-w-[90vw] md:max-w-[620px]">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold">
-            Conectar Carteira
+            Connect Wallet
           </DialogTitle>
-          <DialogDescription>
-            Escolha uma das opções de carteira abaixo para se conectar
+          <DialogDescription className='text-sm'>
+            Choose one of the wallet options below to connect
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
