@@ -12,13 +12,15 @@ An incremental blockchain-based game, developed with Next.js, Prisma, and MongoD
 * **Leaderboard (Coming Soon)** — Compete against others as you progress.
 
 ---
+![Monad Empire game](./public/game.png)
+---
 
 ## 🛠️ Tech Stack
 
 * **Frontend:** Next.js, TailwindCSS, Shadcn UI
-* **Backend:** Prisma, MongoDB, Neon Database
+* **Backend:** Prisma, MongoDB
 * **Blockchain:** Monad Testnet
-* **Libraries:** Radix UI, React Query, Zustand, Recharts
+* **Libraries:** Radix UI, React Query, Zustand
 
 ---
 
