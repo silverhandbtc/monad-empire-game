@@ -156,44 +156,44 @@ export function LevelUpModal({ isOpen, onClose, level }: LevelUpModalProps) {
           open && !open && transactionStatus === 'success' && onClose()
         }
       >
-        <DialogContent className="bg-amber-50 border-amber-200 text-amber-900 max-w-md mx-auto">
+        <DialogContent className="bg-monad-background border-monad-500 text-amber-900 max-w-md mx-auto">
           <DialogHeader>
             <div className="flex justify-center mb-4">
-              <div className="bg-amber-100 p-4 rounded-full">
-                <Award className="h-12 w-12 text-amber-600" />
+              <div className="bg-monad-500 p-4 rounded-full">
+                <Award className="h-12 w-12 text-monad-600" />
               </div>
             </div>
-            <DialogTitle className="text-center text-2xl font-bold text-amber-800 flex items-center justify-center gap-2">
-              <PartyPopper className="h-6 w-6 text-amber-600" />
+            <DialogTitle className="text-center text-2xl font-bold text-gray-100 flex items-center justify-center gap-2">
+              <PartyPopper className="h-6 w-6 text-amber-00" />
               Level {level} Reached!
-              <PartyPopper className="h-6 w-6 text-amber-600" />
+              <PartyPopper className="h-6 w-6 text-gray-100" />
             </DialogTitle>
-            <DialogDescription className="text-center text-amber-700 mt-2">
+            <DialogDescription className="text-center text-gray-100 mt-2">
               Congratulations! You've reached level {level}. Keep expanding your
               business empire!
             </DialogDescription>
           </DialogHeader>
 
           <div className="py-4">
-            <div className="bg-amber-100 rounded-lg p-4 text-center">
-              <p className="text-amber-800 font-medium">
+            <div className="bg-monad-600 rounded-lg p-4 text-center">
+              <p className="text-gray-100 font-medium">
                 Tips for the next level:
               </p>
-              <ul className="text-amber-700 text-sm mt-2 space-y-1 text-left list-disc list-inside">
-                <li>Hire managers to automate your businesses</li>
-                <li>Upgrade your businesses to increase revenue</li>
-                <li>Diversify by investing in different types of businesses</li>
+              <ul className="text-gray-100 text-sm mt-2 space-y-1 text-left list-disc list-inside">
+                <li>Hire managers to automate your jobs</li>
+                <li>Upgrade your jobs to increase revenue</li>
+                <li>Diversify by investing in different types of jobs</li>
               </ul>
             </div>
 
-            <div className="mt-4 bg-amber-100 rounded-lg p-4">
-              <p className="text-amber-800 font-medium text-center mb-3">
+            <div className="mt-4 bg-monad-600 rounded-lg p-4">
+              <p className="text-gray-100 font-medium text-center mb-3">
                 Confirm your level with a transaction:
               </p>
 
               <div className="flex flex-col items-center">
                 {transactionStatus === 'idle' && (
-                  <div className="text-amber-700 text-sm text-center mb-2">
+                  <div className="text-gray-100 text-sm text-center mb-2">
                     Click the button below to make a confirmation transaction.
                   </div>
                 )}
@@ -274,11 +274,10 @@ export function LevelUpModal({ isOpen, onClose, level }: LevelUpModalProps) {
             <Button
               onClick={handleContinue}
               disabled={isTransactionLoading}
-              className={`w-full ${
-                transactionStatus === 'success'
-                  ? 'bg-green-500 hover:bg-green-600'
-                  : 'bg-amber-500 hover:bg-amber-600'
-              } text-white`}
+              className={`w-full ${transactionStatus === 'success'
+                ? 'bg-green-500 hover:bg-green-600'
+                : 'bg-amber-500 hover:bg-amber-600'
+                } text-monad-background`}
             >
               {isTransactionLoading ? (
                 <>

@@ -26,7 +26,7 @@ export function LevelInfo({ playerLevel, totalEarned }: LevelInfoProps) {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <span className="cursor-help">Level {level}</span>
+              <span className="cursor-help text-2xl">Level {level}</span>
             </TooltipTrigger>
             <TooltipContent>
               <div className="text-sm">
@@ -43,7 +43,7 @@ export function LevelInfo({ playerLevel, totalEarned }: LevelInfoProps) {
           className="h-2 bg-amber-100"
           indicatorClassName="bg-amber-500 transition-all duration-300 ease-out"
         />
-        <div className="flex justify-between text-xs text-amber-700 mt-1">
+        <div className="flex justify-between text-sm text-amber-300 mt-1">
           <span>Progress</span>
           <span>{progress.toFixed(1)}%</span>
         </div>

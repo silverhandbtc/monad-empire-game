@@ -24,23 +24,23 @@ export function BusinessCard({
   const canStart = business.owned > 0 && !business.isRunning;
 
   return (
-    <Card className="overflow-hidden bg-white border-amber-200 shadow-md">
+    <Card className="overflow-hidden bg-monad-600 border-monad-500 shadow-md">
       <CardContent className="p-0">
         <div className="flex items-center p-4">
           <div className="flex-shrink-0 mr-4 text-4xl">
-            <Avatar className="rounded-sm border border-gray-800 border-2">
+            <Avatar className="rounded-sm border border-gray-800 border-2 w-40 h-40">
               <AvatarImage src={`/${business.icon}`} alt="@shadcn" />
             </Avatar>
           </div>
           <div className="flex-grow">
             <div className="flex justify-between items-center mb-1">
-              <h3 className="font-bold text-amber-800">{business.name}</h3>
-              <div className="text-sm text-amber-600">
+              <h3 className="font-bold text-gray-200">{business.name}</h3>
+              <div className="text-sm text-amber-300">
                 Level {business.level}
               </div>
             </div>
             <div className="flex justify-between items-center text-sm">
-              <div className="text-amber-700">Count: {business.owned}</div>
+              <div className="text-gray-300">Count: {business.owned}</div>
               <div className="flex items-center text-green-600">
                 <Coins className="h-4 w-4 mr-1" />
                 {formatCurrency(revenue * business.owned)}/cycle
@@ -49,21 +49,21 @@ export function BusinessCard({
             {business.owned > 0 && (
               <Progress
                 value={business.progress}
-                className="h-2 mt-2 bg-amber-100"
-                indicatorClassName="bg-amber-500 transition-all duration-100 ease-linear"
+                className="h-2 mt-2 bg-monad-background"
+                indicatorClassName="bg-amber-300 transition-all duration-100 ease-linear"
               />
             )}
           </div>
         </div>
       </CardContent>
-      <CardFooter className="flex justify-between p-3 bg-amber-50 border-t border-amber-200">
+      <CardFooter className="flex justify-between p-3 bg-monad-600 border-t border-monad-500">
         <Button
           onClick={onBuy}
           disabled={!canBuy}
           variant={canBuy ? 'default' : 'outline'}
-          className={`flex-1 mr-2 ${canBuy ? 'bg-amber-500 hover:bg-amber-600 text-white' : 'text-amber-800 border-amber-300'}`}
+          className={`flex-1 mr-2 ${canBuy ? 'bg-amber-500 hover:bg-amber-600 text-monad-background' : 'text-monad-background border-amber-300'}`}
         >
-          {business.owned === 0 ? 'Buy' : 'Expand'}: {formatCurrency(cost)}
+          {business.owned === 0 ? 'Learn' : 'Expand'}: {formatCurrency(cost)}
         </Button>
 
         {business.owned > 0 && (
@@ -71,21 +71,19 @@ export function BusinessCard({
             <Button
               onClick={onUpgrade}
               disabled={!canUpgrade}
-              variant={canUpgrade ? 'secondary' : 'outline'}
-              className={`flex-1 mr-2 ${canUpgrade ? 'bg-amber-300 hover:bg-amber-400 text-amber-900' : 'text-amber-800 border-amber-300'}`}
+              className={`flex-1 mr-2 ${canUpgrade ? 'bg-amber-300 hover:bg-amber-400 text-amber-900' : 'text-gray-200 border-amber-300'}`}
             >
               <ArrowUpCircle className="h-4 w-4 mr-1" />
               {formatCurrency(upgradeCost)}
             </Button>
 
-            {canStart && (
-              <Button
-                onClick={onStart}
-                className="flex-1 bg-green-500 hover:bg-green-600 text-white"
-              >
-                Start
-              </Button>
-            )}
+            <Button
+              disabled={!canStart}
+              onClick={onStart}
+              className="flex-1 bg-green-500 hover:bg-green-600 text-white"
+            >
+              {canStart ? 'Work' : 'In progress'}
+            </Button>
           </>
         )}
       </CardFooter>

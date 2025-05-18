@@ -38,6 +38,7 @@ export default function Game() {
         const gameData: GameData = await response.json();
 
         setMoney(gameData.money);
+        gameData.businesses.sort((a, b) => a.id - b.id)
         setBusinesses(gameData.businesses);
         setManagers(gameData.managers);
         setTotalEarned(gameData.totalEarned || 0);
@@ -347,19 +348,19 @@ export default function Game() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-monad-background text-amber-900 p-4 flex items-center justify-center">
+      <div className="min-h-screen bg-monad-background text-amber-300 p-4 flex items-center justify-center">
         <div>Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-monad-background text-amber-900 p-4">
+    <div className="min-h-screen bg-monad-background text-amber-300 p-4">
       <header className="max-w-4xl mx-auto mb-6 flex justify-between items-center">
-        <img src="/logo.png" width={250} alt="Logo" className="mb-4" />
+        <img src="/logo.png" width={150} alt="Logo" className="mb-4" />
         <div>
-          <div className="flex justify-center items-center gap-2 text-2xl font-bold mb-2">
-            <Coins className="h-6 w-6 text-amber-600" />
+          <div className="flex justify-center items-center gap-2 text-4xl font-bold mb-2">
+            <Coins className="h-8 w-8 text-amber-300" />
             <span>{formatCurrency(money)}</span>
           </div>
           <LevelInfo playerLevel={playerLevel} totalEarned={totalEarned} />
@@ -368,17 +369,17 @@ export default function Game() {
 
       <main className="max-w-4xl mx-auto">
         <Tabs defaultValue="businesses">
-          <TabsList className="grid w-full grid-cols-2 mb-6 bg-amber-200">
+          <TabsList className="grid w-full grid-cols-2 mb-6 bg-monad-600">
             <TabsTrigger
               value="businesses"
-              className="text-lg data-[state=active]:bg-amber-300 data-[state=active]:text-amber-900"
+              className="text-lg data-[state=active]:text-amber-300 data-[state=active]:bg-monad-500"
             >
               <TrendingUp className="mr-2 h-5 w-5" />
-              Businesses
+              Jobs
             </TabsTrigger>
             <TabsTrigger
               value="managers"
-              className="text-lg data-[state=active]:bg-amber-300 data-[state=active]:text-amber-900"
+              className="text-lg data-[state=active]:text-amber-300 data-[state=active]:bg-monad-500"
             >
               <Users className="mr-2 h-5 w-5" />
               Managers

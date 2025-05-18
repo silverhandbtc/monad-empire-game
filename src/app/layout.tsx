@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { Pixelify_Sans } from 'next/font/google';
+import { Pixelify_Sans, Orbitron, Press_Start_2P } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/header';
 import { WalletProvider } from '@/hooks/use-wallet';
 import Providers from '@/providers';
 import { ThemeProvider } from '@/providers/theme-provider';
 
-const roboto = Pixelify_Sans({
+const roboto = Press_Start_2P({
   variable: '--font-pixelify',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400'],
 });
 
 export const metadata: Metadata = {

@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
                     name: 'Micro-Trading on Kuru',
                     baseCost: 10,
                     baseRevenue: 1,
-                    baseTime: 10,
+                    baseTime: 5,
                     icon: 'kuru.jpg',
                   },
                   {
@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
                     name: 'Basic NFT Minting',
                     baseCost: 60,
                     baseRevenue: 8,
-                    baseTime: 30,
+                    baseTime: 10,
                     icon: 'magiceden.png',
                   },
                 ],
