@@ -50,15 +50,15 @@ Access the application at [http://localhost:3000](http://localhost:3000).
 Create a `.env` file in the root directory and add the following:
 
 ```env
-NEXT_PUBLIC_API_URL=<your-api-url>
-NEXT_PUBLIC_SITE_URL=<your-site-url>
-NEXT_PUBLIC_MONAD_CHAIN_ID=<monad-chain-id>
-NEXT_PUBLIC_MONAD_RPC_URL=<monad-rpc-url>
-NEXT_PUBLIC_MONAD_EXPLORER_URL=<monad-explorer-url>
-NEXT_PUBLIC_MONAD_CHAIN_NAME=<monad-chain-name>
-NEXT_PUBLIC_MONAD_SYMBOL=<monad-symbol>
-NEXT_PUBLIC_MONAD_NAME=<monad-name>
-NEXT_PUBLIC_MONAD_DECIMAL=<monad-decimal>
+NEXT_PUBLIC_API_URL="http://localhost:3000/api"
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+NEXT_PUBLIC_MONAD_CHAIN_ID="0x279f"
+NEXT_PUBLIC_MONAD_RPC_URL="https://testnet-rpc.monad.xyz"
+NEXT_PUBLIC_MONAD_EXPLORER_URL="https://testnet.monadexplorer.com/"
+NEXT_PUBLIC_MONAD_CHAIN_NAME="Monad Testnet"
+NEXT_PUBLIC_MONAD_SYMBOL="MON"
+NEXT_PUBLIC_MONAD_NAME="Monad"
+NEXT_PUBLIC_MONAD_DECIMAL=18
 DATABASE_URL=<your-database-url>
 ```
 
