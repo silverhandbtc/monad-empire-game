@@ -39,6 +39,8 @@ export default function Game() {
 
         setMoney(gameData.money);
         gameData.businesses.sort((a, b) => a.id - b.id)
+        gameData.managers.sort((a, b) => a.id - b.id)
+
         setBusinesses(gameData.businesses);
         setManagers(gameData.managers);
         setTotalEarned(gameData.totalEarned || 0);
@@ -236,7 +238,6 @@ export default function Game() {
       if (money >= manager.cost) {
         setMoney((prevMoney) => prevMoney - manager.cost);
         playSound('manager');
-
         setManagers((prevManagers) => {
           return prevManagers.map((m) => {
             if (m.id === managerId) {
@@ -356,7 +357,7 @@ export default function Game() {
 
   return (
     <div className="min-h-screen bg-monad-background text-amber-300 p-4">
-      <header className="max-w-4xl mx-auto mb-6 flex justify-between items-center">
+      <header className="max-w-4xl mx-auto mb-6 flex flex-col gap-2 md:flex-row justify-between items-center">
         <img src="/logo.png" width={150} alt="Logo" className="mb-4" />
         <div>
           <div className="flex justify-center items-center gap-2 text-4xl font-bold mb-2">
