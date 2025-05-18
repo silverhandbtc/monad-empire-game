@@ -28,20 +28,20 @@ export function BusinessCard({
       <CardContent className="p-0">
         <div className="flex items-center p-4">
           <div className="flex-shrink-0 mr-4 text-4xl">
-            <Avatar className="rounded-sm border border-gray-800 border-2 w-40 h-40">
+            <Avatar className="rounded-sm border-gray-800 border-2 w-20 h-20 md:w-40 md:h-40">
               <AvatarImage src={`/${business.icon}`} alt="@shadcn" />
             </Avatar>
           </div>
           <div className="flex-grow">
-            <div className="flex justify-between items-center mb-1">
-              <h3 className="font-bold text-gray-200">{business.name}</h3>
-              <div className="text-sm text-amber-300">
+            <div className="flex flex-col justify-between mb-1 gap-2 md:gap-0 md:flex-row md:items-center">
+              <h3 className="font-bold text-gray-200 text-xs md:text-xl">{business.name}</h3>
+              <div className="text-amber-300 text-xs md:text-sm">
                 Level {business.level}
               </div>
             </div>
-            <div className="flex justify-between items-center text-sm">
-              <div className="text-gray-300">Count: {business.owned}</div>
-              <div className="flex items-center text-green-600">
+            <div className="flex flex-col justify-between gap-1 md:flex-row md:items-center text-sm">
+              <div className="text-gray-300 text-xs md:text-md">Count: {business.owned}</div>
+              <div className="flex items-center text-green-600 text-xs md:text-md">
                 <Coins className="h-4 w-4 mr-1" />
                 {formatCurrency(revenue * business.owned)}/cycle
               </div>
@@ -63,7 +63,12 @@ export function BusinessCard({
           variant={canBuy ? 'default' : 'outline'}
           className={`flex-1 mr-2 ${canBuy ? 'bg-amber-500 hover:bg-amber-600 text-monad-background' : 'text-monad-background border-amber-300'}`}
         >
-          {business.owned === 0 ? 'Learn' : 'Expand'}: {formatCurrency(cost)}
+          <span className='md:hidden text-xs'>
+            {business.owned === 0 ? 'Learn' : '🔍'} {formatCurrency(cost)}
+          </span>
+          <span className='hidden md:block'>
+            {business.owned === 0 ? 'Learn' : 'Expand'}: {formatCurrency(cost)}
+          </span>
         </Button>
 
         {business.owned > 0 && (
@@ -71,7 +76,7 @@ export function BusinessCard({
             <Button
               onClick={onUpgrade}
               disabled={!canUpgrade}
-              className={`flex-1 mr-2 ${canUpgrade ? 'bg-amber-300 hover:bg-amber-400 text-amber-900' : 'text-gray-200 border-amber-300'}`}
+              className={`flex-1 mr-2 text-xs md:text-sm ${canUpgrade ? 'bg-amber-300 hover:bg-amber-400 text-amber-900' : 'text-gray-200 border-amber-300'}`}
             >
               <ArrowUpCircle className="h-4 w-4 mr-1" />
               {formatCurrency(upgradeCost)}
@@ -82,7 +87,12 @@ export function BusinessCard({
               onClick={onStart}
               className="flex-1 bg-green-500 hover:bg-green-600 text-white"
             >
-              {canStart ? 'Work' : 'In progress'}
+              <span className='md:hidden text-xs'>
+                {canStart ? '🖥️' : '⏳'}
+              </span>
+              <span className='hidden md:block'>
+                {canStart ? 'Work' : 'In progress'}
+              </span>
             </Button>
           </>
         )}

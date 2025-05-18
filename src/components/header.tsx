@@ -14,7 +14,7 @@ import {
 
 export function Header() {
   return (
-    <header className="flex items-center p-4 bg-monad-background text-white flex-col md:flex-row">
+    <header className="flex items-center p-4 bg-monad-background text-white flex-col gap-2 md:flex-row">
       <div className="flex items-center">
         <Link href="/">
           <h1 className="text-xl font-bold">Monad Empire</h1>

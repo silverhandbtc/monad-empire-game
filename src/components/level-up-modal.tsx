@@ -156,7 +156,7 @@ export function LevelUpModal({ isOpen, onClose, level }: LevelUpModalProps) {
           open && !open && transactionStatus === 'success' && onClose()
         }
       >
-        <DialogContent className="bg-monad-background border-monad-500 text-amber-900 max-w-md mx-auto">
+        <DialogContent className="bg-monad-background border-monad-500 text-amber-900 md:max-w-[600px] mx-auto">
           <DialogHeader>
             <div className="flex justify-center mb-4">
               <div className="bg-monad-500 p-4 rounded-full">

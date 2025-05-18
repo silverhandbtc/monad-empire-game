@@ -31,17 +31,17 @@ export function AudioControls({
               variant="outline"
               size="icon"
               onClick={toggleMute}
-              className="bg-white/90 hover:bg-white border-amber-200 shadow-md"
+              className="bg-monad-600 border-amber-300 shadow-md hover:bg-monad-500"
             >
               {isMuted ? (
-                <VolumeX className="h-5 w-5 text-amber-600" />
+                <VolumeX className="h-5 w-5 text-amber-300" />
               ) : (
-                <Volume2 className="h-5 w-5 text-amber-600" />
+                <Volume2 className="h-5 w-5 text-amber-300" />
               )}
             </Button>
           </TooltipTrigger>
           <TooltipContent side="top">
-            <p>{isMuted ? 'Ativar sons' : 'Silenciar sons'}</p>
+            <p>{isMuted ? 'Enable Sounds' : 'Mute Sounds'}</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
@@ -53,15 +53,14 @@ export function AudioControls({
               variant="outline"
               size="icon"
               onClick={toggleMusic}
-              className={`bg-white/90 hover:bg-white border-amber-200 shadow-md ${
-                isMusicMuted ? 'opacity-50' : 'opacity-100'
-              }`}
+              className={`bg-monad-600 border-amber-300 hover:bg-monad-500 shadow-md ${isMusicMuted ? 'opacity-50' : 'opacity-100'
+                }`}
             >
-              <Music className="h-5 w-5 text-amber-600" />
+              <Music className="h-5 w-5 text-amber-300" />
             </Button>
           </TooltipTrigger>
           <TooltipContent side="top">
-            <p>{isMusicMuted ? 'Ativar música' : 'Silenciar música'}</p>
+            <p>{isMusicMuted ? 'Enable Music' : 'Mute Music'}</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>

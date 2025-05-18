@@ -14,6 +14,13 @@ interface ManagerCardProps {
   onBuy: () => void;
 }
 
+const MANAGER_ASSETS = {
+  1: '/john.jpg',
+  2: '/mary.jpg',
+  3: '/wolf.jpg',
+  4: '/mox.jpg',
+}
+
 export function ManagerCard({
   manager,
   business,
@@ -26,10 +33,10 @@ export function ManagerCard({
   return (
     <Card className="overflow-hidden bg-monad-600 border-monad-500 shadow-md">
       <CardContent className="p-4">
-        <div className="flex items-center">
-          <div className="flex-shrink-0 mr-4 bg-gray-100 p-3 rounded-full">
-            <User className="h-8 w-8 text-monad-background" />
-          </div>
+        <div className="flex items-center flex-col gap-4 md:flex-row">
+          <Avatar className="rounded-lg border-amber-300 border-2 w-40 h-40 mr-4">
+            <AvatarImage src={MANAGER_ASSETS[manager.id]} alt={manager.name} />
+          </Avatar>
           <div className="flex-grow">
             <div className="flex justify-between items-center mb-1">
               <h3 className="font-bold text-gray-100">{manager.name}</h3>
@@ -44,7 +51,7 @@ export function ManagerCard({
                 : `Cost: ${formatCurrency(manager.cost)}`}
             </p>
           </div>
-          <Avatar className="rounded-sm border border-gray-800 border-2">
+          <Avatar className="rounded-sm border-gray-800 border-2 hidden md:block">
             <AvatarImage src={`/${business.icon}`} alt="@shadcn" />
           </Avatar>
         </div>
