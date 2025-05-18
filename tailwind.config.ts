@@ -11,7 +11,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'monad-background': '#0A0B0E',
+        'monad-background': '#1E132B',
+        'monad-500': '#6F448A',
+        'monad-600': '#3A274B',
         'monad-primary': '#4D247F',
         'monad-yellow': '#DE861F',
         'monad-light-yellow': '#C9AE81',
