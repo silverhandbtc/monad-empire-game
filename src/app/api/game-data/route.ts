@@ -1,16 +1,16 @@
-import type { GameData } from '@/@types/game';
-import { prisma } from '@/lib/prisma';
-import { type NextRequest, NextResponse } from 'next/server';
+import type { GameData } from "@/@types/game";
+import { prisma } from "@/lib/prisma";
+import { type NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const walletAddress = searchParams.get('walletAddress');
+    const walletAddress = searchParams.get("walletAddress");
 
     if (!walletAddress) {
       return NextResponse.json(
-        { error: 'Wallet address is required' },
-        { status: 400 },
+        { error: "Wallet address is required" },
+        { status: 400 }
       );
     }
 
@@ -43,19 +43,35 @@ export async function GET(request: NextRequest) {
                 create: [
                   {
                     businessId: 1,
-                    name: 'Micro-Trading on Kuru',
+                    name: "Micro-Trading on Kuru",
                     baseCost: 10,
                     baseRevenue: 1,
                     baseTime: 5,
-                    icon: 'kuru.jpg',
+                    icon: "kuru.jpg",
                   },
                   {
                     businessId: 2,
-                    name: 'Basic NFT Minting',
-                    baseCost: 60,
+                    name: "Basic NFT Minting",
+                    baseCost: 600,
                     baseRevenue: 8,
                     baseTime: 10,
-                    icon: 'magiceden.png',
+                    icon: "magiceden.png",
+                  },
+                  {
+                    businessId: 3,
+                    name: "Liquidity Provider",
+                    baseCost: 1000,
+                    baseRevenue: 16,
+                    baseTime: 15,
+                    icon: "apr.jpeg",
+                  },
+                  {
+                    businessId: 4,
+                    name: "Zona Finance Trader",
+                    baseCost: 10000,
+                    baseRevenue: 32,
+                    baseTime: 20,
+                    icon: "zona.png",
                   },
                 ],
               },
@@ -64,14 +80,26 @@ export async function GET(request: NextRequest) {
                   {
                     managerId: 1,
                     businessId: 1,
-                    name: 'John',
+                    name: "John",
                     cost: 1000,
                   },
                   {
                     managerId: 2,
                     businessId: 2,
-                    name: 'Mary',
+                    name: "Mary",
                     cost: 15000,
+                  },
+                  {
+                    managerId: 3,
+                    businessId: 3,
+                    name: "Wolf",
+                    cost: 100000,
+                  },
+                  {
+                    managerId: 4,
+                    businessId: 4,
+                    name: "Mox",
+                    cost: 200000,
                   },
                 ],
               },
@@ -117,10 +145,10 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(gameData);
   } catch (error) {
-    console.error('Error loading game data:', error);
+    console.error("Error loading game data:", error);
     return NextResponse.json(
-      { error: 'Failed to load game data' },
-      { status: 500 },
+      { error: "Failed to load game data" },
+      { status: 500 }
     );
   }
 }
@@ -135,8 +163,8 @@ export async function POST(request: NextRequest) {
 
     if (!walletAddress || !gameData) {
       return NextResponse.json(
-        { error: 'Wallet address and game data are required' },
-        { status: 400 },
+        { error: "Wallet address and game data are required" },
+        { status: 400 }
       );
     }
 
@@ -194,7 +222,7 @@ export async function POST(request: NextRequest) {
             icon: business.icon,
           },
         });
-      }),
+      })
     );
 
     await Promise.all(
@@ -209,15 +237,15 @@ export async function POST(request: NextRequest) {
             purchased: manager.purchased,
           },
         });
-      }),
+      })
     );
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error saving game data:', error);
+    console.error("Error saving game data:", error);
     return NextResponse.json(
-      { error: 'Failed to save game data' },
-      { status: 500 },
+      { error: "Failed to save game data" },
+      { status: 500 }
     );
   }
 }
