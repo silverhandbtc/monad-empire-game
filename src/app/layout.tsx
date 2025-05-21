@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Pixelify_Sans, Orbitron, Press_Start_2P } from 'next/font/google';
+import { Press_Start_2P } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/header';
 import { WalletProvider } from '@/hooks/use-wallet';

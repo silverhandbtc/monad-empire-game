@@ -114,3 +114,9 @@ This project is licensed under the MIT License.
 ---
 
 Developed with 💙 by [silverhandbtc](https://github.com/silverhandbtc)
+
+
+
+🔗 Play Now: monadempire.xyz
+💻 GitHub: silverhandbtc/monad-empire-game
+Discord: silverhandbtc
